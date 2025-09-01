@@ -1,26 +1,68 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --soft-cyan: hsl(174, 77%, 80%);
+  --strong-cyan: hsl(174, 86%, 45%);
+  --light-grayish-red: hsl(14, 92%, 95%);
+  --light-red: hsl(15, 100%, 70%);
+  --pale-blue: hsl(226, 100%, 87%);
+  
+  /* Neutral Colors */
+  --white: hsl(0, 0%, 100%);
+  --very-pale-blue: hsl(230, 100%, 99%);
+  --light-grayish-blue: hsl(224, 65%, 95%);
+  --light-grayish-blue-toggle: hsl(223, 50%, 87%);
+  --grayish-blue: hsl(225, 20%, 60%);
+  --dark-desaturated-blue: hsl(227, 35%, 25%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark theme variables */
+:root.dark {
+  --bg-main: hsl(227, 35%, 25%);
+  --bg-card: hsl(228, 56%, 26%);
+  --text-primary: hsl(0, 0%, 100%);
+  --text-secondary: hsl(225, 20%, 60%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Remove default slider styling */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  border-radius: 5px;
+  outline: none;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  background: url('/images/icon-slider.svg') no-repeat center;
+  background-size: contain;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px hsla(174, 77%, 80%, 0.6);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  box-shadow: 0 20px 40px hsla(174, 77%, 80%, 0.8);
+  transform: scale(1.1);
+}
+
+.slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+.slider::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  background: url('/images/icon-slider.svg') no-repeat center;
+  background-size: contain;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 15px 30px hsla(174, 77%, 80%, 0.6);
 }
